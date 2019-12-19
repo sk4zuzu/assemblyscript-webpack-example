@@ -1,0 +1,12 @@
+node_modules/
+*.swp
+*.swo
+
+/pics/*.jpg
+
+/dist/*.jpg
+/dist/*.wasm
+/dist/*.wasm.map
+/dist/*.wat
+/dist/*.js
+/dist/*.json
