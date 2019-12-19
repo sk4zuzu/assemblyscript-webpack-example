@@ -1,0 +1,24 @@
+{
+  "name": "assemblyscript-webpack-example",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "asbuild": "asc assembly/index.ts -b dist/optimized.wasm -t dist/optimized.wat --sourceMap --validate --measure",
+    "build": "webpack --mode=production",
+    "start:dev": "webpack-dev-server --mode=development --hot --content-base=dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "assemblyscript": "^0.8.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.8.1",
+    "lodash-fp": "^0.10.4"
+  }
+}
