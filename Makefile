@@ -15,7 +15,14 @@ check:
 	fi >&2
 
 clean:
-	-rm -f $(TARGETS) dist/list.json dist/main.js $(wildcard dist/*.wasm) $(wildcard dist/*.wasm.map) $(wildcard dist/*.wat)
+	-rm -rf \
+	    $(TARGETS) \
+	    dist/list.json \
+	    dist/main.js \
+	    $(wildcard dist/*.wasm) \
+	    $(wildcard dist/*.wasm.map) \
+	    $(wildcard dist/*.wat) \
+	    node_modules/
 
 pics: check $(TARGETS) dist/list.json
 
@@ -27,8 +34,11 @@ dist/%.jpg: pics/%.jpg
 
 .PHONY: build serve
 
-build:
+build: node_modules/
 	npm run asbuild && npm run build
 
-serve:
+serve: node_modules/
 	npm run start:dev
+
+node_modules/:
+	npm install
